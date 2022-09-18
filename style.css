@@ -1,0 +1,377 @@
+/* -------------------------------------------------------------------------------- */
+/* ! Header */
+/* -------------------------------------------------------------------------------- */
+.header {
+    position: fixed;
+    height: 150px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 15px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    max-width: 1500px;
+
+
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: 2%;
+    height: 150px;
+    width: 70vw;
+    align-items: center;
+    font-size: 1.5rem;
+    text-align: right;
+
+}
+
+.menu ul {
+    width: 100%;
+}
+
+.menu li {
+    display: inline-block;
+    padding-left: 5%;
+
+}
+
+
+
+.menu li a:hover,
+.active {
+    border-bottom: 2px solid #00bbfe;
+    transition: all .4s cubic-bezier(.215, .61, .355, 1);
+    color: #00bbfe;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+@media only screen and (max-width: 1320px) {
+    .header {
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        margin: 30px 0 0 30px;
+        padding: 10px auto;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+    }
+
+    .menu-toggle span {
+        width: 40px;
+        height: 5px;
+        border: 2px solid #fff;
+        background: #fff;
+        border-radius: 15%;
+
+    }
+
+
+
+    .menu {
+        position: absolute;
+        top: 0;
+        right: -100%;
+        background: rgb(186, 201, 208);
+        height: 100vh;
+        padding-top: 100px;
+        text-align: left;
+        display: block;
+        width: 65vw;
+    }
+
+    .menu li {
+        display: block;
+        padding-top: 25px;
+    }
+
+    .menu li a {
+        padding: 15px 30px;
+        font-size: 20px;
+        color: #fff;
+        margin-top: 10px;
+    }
+
+    .menu li a:hover,
+    .active {
+        border-bottom: 0px;
+        color: #00bbfe;
+    }
+
+    .menu--open {
+        right: 0%;
+    }
+}
+
+/* -------------------------------------------------------------------------------- */
+/* ! Hero */
+/* -------------------------------------------------------------------------------- */
+.hero {
+    height: 80vh;
+    width: 100%;
+    background: url(img/bg.svg) no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.hero::after {
+    content: ' ';
+    width: 100%;
+    height: 90%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0.5;
+}
+
+.hero::before {
+    content: ' ';
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, #ffffff, transparent);
+    z-index: 10000;
+}
+
+.hero__content {
+    position: absolute;
+    padding: 5%;
+}
+
+.hero__content h1 {
+    letter-spacing: 3px;
+    width: 100%;
+
+}
+
+.hero__content h4 {
+    color: #bcbcbc;
+    width: 100%;
+}
+
+@media only screen and (min-width: 2036px) {
+    .hero {
+        background-size: 95%;
+    }
+
+    .hero::after {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+}
+
+@media only screen and (max-width: 1320px) {
+    .hero {
+        background-size: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero {
+        height: 100vh;
+    }
+
+    .hero::before {
+        display: none;
+    }
+}
+
+/* -------------------------------------------------------------------------------- */
+/* ! Grid */
+/* -------------------------------------------------------------------------------- */
+.grid {
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 1500px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    height: 20vh;
+    z-index: 1;
+}
+
+.grid--center {
+    justify-content: center;
+}
+
+[class*='col-'] {
+    position: relative;
+}
+
+.col-33 {
+    width: 33.33%;
+    text-align: center;
+}
+
+.col-33:hover {
+    scale: 1.05;
+}
+
+.icon {
+    font-size: 4.5rem;
+    text-align: center;
+    height: 50%;
+    padding: 2%;
+}
+
+.text {
+    color: #235fc9;
+    font-weight: bold;
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.col-33:nth-child(1) {
+    border-right: 2px solid #bcbcbc;
+}
+
+.col-33:nth-child(3) {
+    border-left: 2px solid #bcbcbc;
+}
+
+
+
+@media (max-width: 991px) {
+
+    .tab-33 {
+        width: 33.33%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    [class*='col-'] {
+        width: 100%;
+    }
+
+    .sma-33 {
+        width: 100%;
+    }
+   .col-33:nth-child(1) {
+       border-right: 0px ;
+   }
+
+   .col-33:nth-child(3) {
+       border-left: 0px ;
+   }
+
+    .sma-hide {
+        display: none
+    }
+
+}
+
+/* -------------------------------------------------------------------------------- */
+/* ! Info Generali */
+/* -------------------------------------------------------------------------------- */
+
+.general {
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+    max-width: 1500px;
+    position: relative;
+    padding: 20px ;
+    display: flex;
+    z-index: 1;
+}
+
+.general__title {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: #235fc9;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 10px 10px;
+}
+.general__title i {
+   font-size: 4.5rem;
+}
+.general__title h2{
+    margin-left: 70px;
+    
+}
+@media (max-width: 768px) {
+.general__title h2 {
+        margin-left: 20px;
+    }
+.general__content{
+    margin-top: 200px;
+}
+
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/* ! Helpers */
+/* -------------------------------------------------------------------------------- */
+
+.mt-1{
+    margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .mt-s{
+    margin-top: 500px;
+  }
+  .mt-s1{
+    margin-top: 125px;
+  }
+}
+img {
+    height: auto;
+    width: 100%;
+}
+
+i {
+    height: 40px;
+    width: 40px;
+    color: #235fc9;
+}
